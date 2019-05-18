@@ -40,7 +40,7 @@ def str_optional(s):
 @commands.command("serve")
 @cli_args.MODEL_URI
 @click.option("--port", "-p", default=5000, help="Server port. [default: 5000]")
-@click.option("--host", "-h", default=127.0.0.1, help="Server port. [default: 127.0.0.1]")
+@click.option("--host", "-h", default="127.0.0.1", help="Server port. [default: 127.0.0.1]")
 def serve(model_uri, port, host):
     """
     Serve an RFunction model saved with MLflow.
