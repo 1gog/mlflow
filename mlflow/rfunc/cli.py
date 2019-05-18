@@ -36,6 +36,7 @@ def str_optional(s):
     return str(s)
 
 
+
 @commands.command("serve")
 @cli_args.MODEL_URI
 @click.option("--port", "-p", default=5000, help="Server port. [default: 5000]")
