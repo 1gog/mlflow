@@ -39,7 +39,8 @@ def str_optional(s):
 @commands.command("serve")
 @cli_args.MODEL_URI
 @click.option("--port", "-p", default=5000, help="Server port. [default: 5000]")
-def serve(model_uri, port):
+@click.option("--host", "-h", default=127.0.0.1, help="Server port. [default: 127.0.0.1]")
+def serve(model_uri, port, host):
     """
     Serve an RFunction model saved with MLflow.
 
@@ -47,7 +48,7 @@ def serve(model_uri, port):
     otherwise it is treated as a local path.
     """
     model_path = _download_artifact_from_uri(model_uri)
-    command = "mlflow::mlflow_rfunc_serve('{0}', port = {1})".format(model_path, port)
+    command = "mlflow::mlflow_rfunc_serve('{0}', port = {1}, host = '{2}')".format(model_path, port, host)
     execute(command)
 
 
