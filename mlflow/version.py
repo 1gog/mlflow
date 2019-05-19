@@ -1,4 +1,4 @@
 # Copyright 2018 Databricks, Inc.
 
 
-VERSION = '0.9.1'
+VERSION = '0.9.1fix_rfunc'
