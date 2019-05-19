@@ -40,7 +40,8 @@ def str_optional(s):
 @cli_args.MODEL_PATH
 @cli_args.RUN_ID
 @click.option("--port", "-p", default=5000, help="Server port. [default: 5000]")
-def serve(model_path, run_id, port):
+@click.option("--host", "-h", default="127.0.0.1", help="Host ip address. [default: 127.0.0.1]")
+def serve(model_path, run_id, port, host):
     """
     Serve an RFunction model saved with MLflow.
 
@@ -50,7 +51,7 @@ def serve(model_path, run_id, port):
     if run_id:
         model_path = _get_model_log_dir(model_path, run_id)
 
-    command = "mlflow::mlflow_rfunc_serve('{0}', port = {1})".format(model_path, port)
+    command = "mlflow::mlflow_rfunc_serve('{0}', port = {1}, host = '{2}')".format(model_path, port, host)
     execute(command)
 
 
